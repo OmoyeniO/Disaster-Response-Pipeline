@@ -63,16 +63,54 @@ def tokenize(text):
 
 def build_model():
     '''
-    Build a pipeline with 
+    Build a pipeline with TFIDF, truncated SVD, and an LGBMclassifier
+    Input: Input text
+
     '''
+    #Build pipeline
+    pipeline2 = Pipeline([  
+        ('vect', CountVectorizer()),
+        ('best', TruncatedSVD()),
+        ('tfidf', TfidfTransformer()),
+        ('clf', MultiOutputClassifier(lgb.LGBMClassifier()))
+    ])
+
+    #Parameter tunning for grid search
+    parameters2 = {'tfidf__use_idf': (True, False), 
+              'clf__estimator__n_estimators': [50, 100],
+              'clf__estimator__learning_rate': [1,2] }
+
+    # Initialize GridSearch 
+    cv2 = GridSearchCV(pipeline2, param_grid=parameters2)
+
+    return cv2
 
 
-def evaluate_model(model, X_test, Y_test, category_names):
-    pass
+def evaluate_model(model, X_test, y_test):
+    '''
+    Function to test the model, report the F1 score, precision and recall for each output category (classification report).
+    Input: Model, test set for X and y
+    Output: Prints classification report
+
+    '''
+    y_pred = model.predict(X_test)
+    
+    for i, col in enumerate (y_test):
+        print (col)
+        print (classification_report (y_test[col], y_pred[:, i]))
+            
 
 
 def save_model(model, model_filepath):
-    pass
+    '''
+    Save model to a pickle file
+    
+    model: model object
+    model_filepath: model output file path
+
+    '''
+
+    joblib.dump(model, model_filepath) 
 
 
 def main():
