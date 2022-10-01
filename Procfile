@@ -1,1 +1,1 @@
-web gunicorn disaster_pipeline:app
+web gunicorn run:app
