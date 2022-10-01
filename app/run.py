@@ -95,12 +95,12 @@ def go():
         classification_result=classification_results
     )
 
-def main():
-    app.run()
+# def main():
+#     app.run()
 
 
 
 
-if __name__ == '__main__':
-    main()
+# if __name__ == '__main__':
+#     main()
 
