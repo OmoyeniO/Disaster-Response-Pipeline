@@ -18,3 +18,4 @@ tenacity==8.1.0
 tqdm==4.64.1
 Werkzeug==2.2.2
 zipp==3.8.1
+SQLAlchemy==1.4.29
