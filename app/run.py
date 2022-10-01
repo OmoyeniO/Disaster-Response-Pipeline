@@ -30,11 +30,11 @@ def tokenize(text):
 
 # load data
 
-engine = create_engine('sqlite:///../.Disaster_response.db')
-df = pd.read_sql_table('Messages', engine)
+engine = create_engine('sqlite:///../data/DisasterResponse.db')
+df = pd.read_sql_table('DisasterResponse', engine)
 
 # load model
-model = joblib.load("../models/your_model_name.pkl")
+model = joblib.load("../models/disaster_model.pkl")
 
 
 # index webpage displays cool visuals and receives user input text for model
