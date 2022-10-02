@@ -46,6 +46,16 @@ def index():
     # TODO: Below is an example - modify to extract data for your own visuals
     genre_counts = df.groupby('genre').count()['message']
     genre_names = list(genre_counts.index)
+
+    # category data for plotting
+    categories =  df[df.columns[4:]]
+    cate_counts = (categories.mean()*categories.shape[0]).sort_values(ascending=False)
+    cate_names = list(cate_counts.index)
+    
+    # Plotting of Categories Distribution in Direct Genre
+    direct_cate = df[df.genre == 'direct']
+    direct_cate_counts = (direct_cate.mean()*direct_cate.shape[0]).sort_values(ascending=False)
+    direct_cate_names = list(direct_cate_counts.index)
     
     # create visuals
     # TODO: Below is an example - modify to create your own visuals
@@ -67,8 +77,48 @@ def index():
                     'title': "Genre"
                 }
             }
+        },
+         # category plotting (Visualization#2)
+        {
+            'data': [
+                Bar(
+                    x=cate_names,
+                    y=cate_counts
+                )
+            ],
+
+            'layout': {
+                'title': 'Distribution of Message Categories',
+                'yaxis': {
+                    'title': "Count"
+                },
+                'xaxis': {
+                    'title': "Categories"
+                }
+            }
+            
+        },
+        # Categories Distribution in Direct Genre (Visualization#3)
+        {
+            'data': [
+                Bar(
+                    x=direct_cate_names,
+                    y=direct_cate_counts
+                )
+            ],
+
+            'layout': {
+                'title': 'Categories Distribution in Direct Genre',
+                'yaxis': {
+                    'title': "Count"
+                },
+                'xaxis': {
+                    'title': "Categories in Direct Genre"
+                }
+            }
         }
     ]
+    
     
     # encode plotly graphs in JSON
     ids = ["graph-{}".format(i) for i, _ in enumerate(graphs)]
