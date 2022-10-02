@@ -28,7 +28,7 @@ This project has three main sections:
 
 <a name="requirements"></a>
 ### Requirements
-* Python 3.5+
+* Python 3
 * Machine Learning Libraries: NumPy, SciPy, Pandas, Sciki-Learn
 * Natural Language Process Libraries: NLTK
 * SQLlite Database Libraqries: SQLalchemy
@@ -42,7 +42,7 @@ To clone the git repository:
 git clone https://github.com/OmoyeniO/Disaster-Response-Pipeline.git
 ```
 <a name="execution"></a>
-### Execution:
+### Execution
 1. Run the following commands in the project's directory to set up the database, train model and save the model.
 
     - To run ETL pipeline to clean data and store the processed data in the database
