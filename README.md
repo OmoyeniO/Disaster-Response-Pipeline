@@ -28,7 +28,7 @@ This project has three main sections:
 
 <a name="requirements"></a>
 ### Requirements
-* Python 3.5+
+* Python 3
 * Machine Learning Libraries: NumPy, SciPy, Pandas, Sciki-Learn
 * Natural Language Process Libraries: NLTK
 * SQLlite Database Libraqries: SQLalchemy
