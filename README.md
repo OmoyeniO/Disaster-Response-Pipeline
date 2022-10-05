@@ -23,7 +23,7 @@ The goal of this project is to build a Natural Language Processing (NLP) model t
 This project has three main sections:
 
 1. Building an ETL pipeline to extract data from source, clean the data and load the data into a SQLite DB
-2. Building a machine learning pipeline to train the which can classify text message in various categories
+2. Building a machine learning pipeline to train and classify text messages in various categories
 3. Run a web app which can show the model results in real time
 
 <a name="requirements"></a>
