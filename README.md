@@ -31,7 +31,7 @@ This project has three main sections:
 * Python 3
 * Machine Learning Libraries: NumPy, SciPy, Pandas, Sciki-Learn
 * Natural Language Process Libraries: NLTK
-* SQLlite Database Libraqries: SQLalchemy
+* SQLlite Database Libraries: SQLalchemy
 * Model Loading and Saving Library: Pickle
 * Web App and Data Visualization: Flask, Plotly
 
